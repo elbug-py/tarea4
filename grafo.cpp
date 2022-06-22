@@ -67,10 +67,11 @@ bool Grafo::hay_camino(int d, int h){
             else{
                 used.push_back(graph[d][i]);
                 cout<<"vas en el: "<<graph[d][i]<<endl;
-                if (hay_camino((graph[d][i]), h) == true) return true;
+                if (hay_camino((graph[d][i]), h) == true){used.clear();return true;} 
             }
         }
     }
+    used.clear();
     return false;
 }
 
