@@ -2,18 +2,20 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
 Grafo::Grafo(){
     vector<vector<int>> grap;
     this->graph = grap;
+    this->used = {};
 }
 
 Grafo::Grafo(int v){
     //vector<vector<int>> grap;
     //this->graph = grap;
-
+    this->used = {};
     for (int i = 0; i < v+1; i++)
     {
         vector<int> v1;
@@ -52,15 +54,22 @@ bool Grafo::hay_arco(int d, int h){
 }
 
 bool Grafo::hay_camino(int d, int h){
-    if (d<(int)graph.size() && h<(int)graph.size()){
+    if (hay_arco(d, h) == true) return true;
 
-        if (hay_arco(d, h) == true) return true;
+    else if ((int) graph[d].size() == 0 || (int) graph[h].size() == 0) return false;
+
+    else if (d<(int)graph.size() && h<(int)graph.size()){
+
+        used.push_back(d);
 
         for (int i = 0; i < (int) graph[d].size(); i++)
-        {
-            if (hay_arco((graph[d][i]), h) == true) return true;
+        {   if (std::count(used.begin(), used.end(), graph[d][i])){}
+            else{
+                used.push_back(graph[d][i]);
+                cout<<"vas en el: "<<graph[d][i]<<endl;
+                if (hay_camino((graph[d][i]), h) == true) return true;
+            }
         }
-        
     }
     return false;
 }

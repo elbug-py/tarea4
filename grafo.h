@@ -1,11 +1,12 @@
 #include<vector>
-
+#include <algorithm>
 using namespace std;
 
 class Grafo{        
     public:
         vector<int> nodos;
         vector<vector<int>> graph;
+        vector<int> used;
     //Constructores.
         Grafo();
         Grafo(int v);

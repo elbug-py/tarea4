@@ -22,9 +22,12 @@ int main(){
     Grafo g1 = Grafo(3);
 
     g1.add_arco(1,3);
-    g1.add_arco(3,4);
     g1.add_nodo();
-    g1.add_arco(1,4);
+    g1.add_nodo();
+    g1.add_arco(3,2);
+    g1.add_arco(3,4);
+    g1.add_arco(2,4);
+    g1.add_arco(4,5);
     /*int a = g1.add_nodo();
     int b = g1.add_nodo();
 
