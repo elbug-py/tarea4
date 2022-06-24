@@ -2,7 +2,6 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <algorithm>
 
 using namespace std;
 
@@ -36,9 +35,6 @@ void Grafo::add_arco(int d, int h){
         graph[d].push_back(h);
         graph[h].push_back(d);
     }
-    else{
-        cout<<"FUERA DE RANGO"<<endl;
-    }
     
 }
 
@@ -62,13 +58,21 @@ bool Grafo::hay_camino(int d, int h){
 
         used.push_back(d);
 
-        for (int i = 0; i < (int) graph[d].size(); i++)
-        {   if (std::count(used.begin(), used.end(), graph[d][i])){}
-            else{
-                used.push_back(graph[d][i]);
-                cout<<"vas en el: "<<graph[d][i]<<endl;
-                if (hay_camino((graph[d][i]), h) == true){used.clear();return true;} 
+        for (int i = 0; i < (int) used.size(); i++){   
+            
+            int count = 0;
+            for (int j = 0; j < (int) graph[d].size(); j++)
+            {
+                if (used[j]== graph[d][i]) count++;
             }
+
+            if (count == 0){
+                used.push_back(graph[d][i]);
+                if (hay_camino((graph[d][i]), h) == true){
+                    used.clear();
+                    return true;
+                    }
+                }
         }
     }
     used.clear();
