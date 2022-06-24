@@ -66,15 +66,10 @@ class Grafo(object):
     __repr__ = _swig_repr
     nodos = property(_grafo.Grafo_nodos_get, _grafo.Grafo_nodos_set)
     graph = property(_grafo.Grafo_graph_get, _grafo.Grafo_graph_set)
+    used = property(_grafo.Grafo_used_get, _grafo.Grafo_used_set)
 
     def __init__(self, *args):
         _grafo.Grafo_swiginit(self, _grafo.new_Grafo(*args))
-
-    def get_nodos(self):
-        return _grafo.Grafo_get_nodos(self)
-
-    def get_arcos(self):
-        return _grafo.Grafo_get_arcos(self)
 
     def add_nodo(self):
         return _grafo.Grafo_add_nodo(self)
