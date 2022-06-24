@@ -29,6 +29,7 @@ int main(){
     cout<<g1.hay_arco(1,3)<<endl;
     cout<<g1.hay_camino(1,2)<<endl;
     cout<<g1.hay_camino(1,5)<<endl;
+    cout<<g1.hay_camino(1,6)<<endl;
     
 
     return 0;
