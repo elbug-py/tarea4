@@ -4,4 +4,4 @@
 #include "grafo.h"
 %}
 
-%include grafo.h
+%include"grafo.h"
